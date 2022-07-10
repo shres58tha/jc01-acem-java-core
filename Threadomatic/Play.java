@@ -1,5 +1,4 @@
 public class Play extends Thread{
-    private Thread thread;
     int count;
     public Play (int count) {
         this.count=count;
