@@ -29,6 +29,9 @@ public class Main {
                     myObj.close();      // fix for warning of resource leak
                     System.exit(0);
                     break;
+                default: 
+                    System.out.println("\nInvalid choice! please choose 1, 2 or 3\n");
+                    break;
             }
         }        
     }
