@@ -1,5 +1,4 @@
 package com.Quiz;
-import java.text.NumberFormat;
 
 public class Score {
     static int maxScore=0;         //need to be acessed from every object created
@@ -16,7 +15,7 @@ public class Score {
         return timeStamp;
     }
     public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+        Score.timeStamp = timeStamp;            // changed due to the warning static variable should be acessed static way
     }
     public String getMaxScoreName() {
         return maxScoreName;
@@ -25,7 +24,7 @@ public class Score {
         return name;
     }
     public void setName(String name) {
-        this.name = name;
+        Score.name = name;                      // changed due to the warning static variable should be acessed static way
     }
     public int getMaxScore() {
         return maxScore;

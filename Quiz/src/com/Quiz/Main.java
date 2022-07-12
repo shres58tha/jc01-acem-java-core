@@ -26,6 +26,7 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("\nHOPE you got some Java Array Fluency.\n");
+                    myObj.close();      // fix for warning of resource leak
                     System.exit(0);
                     break;
             }
