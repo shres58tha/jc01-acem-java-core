@@ -1,0 +1,108 @@
+public class DynamicList<T> implements List<T> {
+
+    Object[] elements = new Object[0];
+    Integer size = 0;
+
+    @Override
+    public void add(T param) {
+        int length = elements.length;
+        if (length == 0) {
+            elements = new Object[1];
+            elements[0] = param;
+
+        } else {
+            Object[] temp = new Object[length + 1];
+            for (int i = 0; i < length; i++) {
+                temp[i] = elements[i];
+            }
+            temp[length] = param;
+            elements = temp;
+        }
+        size++;
+    }
+
+    @Override
+    public void remove(int i) {
+
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public Object[] all() {
+        return elements;
+    }
+}
+
+public interface List<T> {
+
+    void add(T param);
+
+    void remove(int i);
+
+    int size();
+
+    Object[] all();
+}
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Object> list = new DynamicList<>();
+        Person person = new Person();
+        person.id = 1L;
+        list.add(person);
+        list.add(new Person("Ramlal", 12));
+        list.add(new Person("Shyamlal", 13));
+        list.add(true);
+        list.add('A');
+
+        for(Object element: list.all()){
+            System.out.println(element);
+        }
+    }
+}
+
+public class Person {
+    public Long id;
+    private String name;
+    private Integer age;
+
+    public Person() {
+    }
+
+    public Person(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}

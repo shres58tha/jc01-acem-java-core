@@ -7,9 +7,8 @@ import java.time.Duration;
 
 public class Question
 {
-    Score myScore = new Score() ;
-    Scanner myScanner = new Scanner(System.in) ;
-    
+    Score myScore = new Score() ;                  // need to be outside the function or score need to be singleton
+    Scanner myScanner = new Scanner(System.in) ;   // closed by java garbage collector when object of Question goes out of scope    
     public void questions () {
         String[] questions = {
             "Which of the following declares an array of integers named number?\n\n1) int number ;\n2) int [ ] number ;\n3) int new number [ ] ;\n4) int number = int [ ] ;\n",
@@ -34,14 +33,14 @@ public class Question
             "Which code line could possibly \"call\" this method?\npublic static int SomeMethod(double[ ] array, int[ ] number){\n  . . .\n}\n\n1) int value = SomeMethod(money, grades) ;\n2) SomeMethod(money, grades) ;\n3) double value = SomeMethod(money, grades) ;\n4) int value = SomeMethod(money) ;\n",
         };
         String[] answers = {"2","3","3","1","2","1","1","2","4","2","4","1","4","2","1","3","3","4","3","1"};
-            int[] array = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 };
-            Random rand = new Random();
-            for (int i = 0; i < array.length; i++) {                         //randomize questions
-                int randomIndexToSwap = rand.nextInt(array.length);
-                int temp = array[randomIndexToSwap];
-                array[randomIndexToSwap] = array[i];
-                array[i] = temp;
-            }
+        int[] array = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 };
+        Random rand = new Random();
+        for (int i = 0; i < array.length; i++) {                         //randomize questions
+            int randomIndexToSwap = rand.nextInt(array.length);
+            int temp = array[randomIndexToSwap];
+            array[randomIndexToSwap] = array[i];
+            array[i] = temp;
+        }
 
         System.out.println("Your name please : ");
         String answer = myScanner.next() ;
@@ -66,6 +65,6 @@ public class Question
         Instant endTime = Instant.now();
         Duration timeElapsed = Duration.between(startTime, endTime);
         myScore.setTimeStamp(timeElapsed.toSeconds()); // sets current time duration in the Score
-        myScore.score(numCorrect, 20) ;
+        myScore.score(numCorrect, 20, timeElapsed.toSeconds()) ;
     }
 }

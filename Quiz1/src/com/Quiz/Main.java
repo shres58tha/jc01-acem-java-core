@@ -4,16 +4,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner myObj = new Scanner(System.in);
         Question myQuestion = new Question();
-        Score score = new Score(); 
- 
+        Score score = new Score();              // here too new score possible solution need to pass score object to question
+                                                // or make score a singleton 
         while (true) {
             System.out.println("\n\nLets learn Java Array by Quiz.\n Menu");
             System.out.println("1. Start to Learn");
             System.out.println("2. Max. Score");
             System.out.println("3. Exit");
-            String userOption = input.nextLine();
+            String userOption = myObj.nextLine();
 
             switch (userOption) {
                 case "1":
@@ -26,7 +26,7 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("\nHOPE you got some Java Array Fluency.\n");
-                    input.close();      // fix for warning of resource leak
+                    myObj.close();      // stream close fix for warning of resource leak
                     System.exit(0);
                     break;
                 default: 

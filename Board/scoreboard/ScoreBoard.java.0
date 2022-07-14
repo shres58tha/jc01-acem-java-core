@@ -1,0 +1,41 @@
+package scoreboard;
+import java.util.*;
+
+public class ScoreBoard {
+   
+    ArrayList<Board> hallOfFame = new ArrayList<Board>();
+
+    public void setScoreBoard(int sc, long tE, String nm) {
+        Board b = new Board();
+        Board c;
+        b.score=sc;
+        b.timeStamp=tE;
+        b.name=nm;
+
+        for (int i=0;i<10;i++){
+            if(hallOfFame.size()<10){
+                hallOfFame.add(b);
+                break;
+            }else{
+                c=hallOfFame.get(i);
+                if ((sc > c.score) || (sc==c.score && tE < c.timeStamp)){
+                    hallOfFame.add(b);  // need to insert this at location i and push others down
+                    break;
+                }
+            }   
+        }
+        //int lenght = hallOfFame.size();
+        //System.out.println( " size " + lenght);
+        //code to truncate the program
+        //hallOfFame(10, list.size()).clear();
+    }
+    public void getScoreBoardDisplay() {
+        System.out.println("\n\nSCORE BOARD\n*****************************\nrank \t name\t\ttime\n");
+        int lenght = hallOfFame.size();
+        //System.out.println( " size " + lenght);
+        for (int i=0; i<lenght ; i++) {
+            Board entry=hallOfFame.get(i);
+            System.out.println(entry.score +"\t"+entry.timeStamp +"\t"+entry.name);
+        }
+    }
+}
