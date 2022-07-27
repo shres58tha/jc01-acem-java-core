@@ -5,8 +5,7 @@ import java.util.Scanner;
 import java.time.Instant;
 import java.time.Duration;
 
-public class Question
-{
+public class Question{
     Score myScore = new Score() ;
     Scanner myScanner = new Scanner(System.in) ;
     
