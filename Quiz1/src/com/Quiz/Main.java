@@ -1,32 +1,32 @@
 package com.Quiz;
+
 import java.util.Scanner;
+import com.ScoreBoard.ScoreBoard;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
-        Question myQuestion = new Question();
-        Score score = new Score();              // here too new score possible solution need to pass score object to question
-                                                // or make score a singleton 
+        Scanner myScan = new Scanner(System.in);
+        Game myGame = new Game();
+        ScoreBoard sc= new ScoreBoard();
+     
         while (true) {
             System.out.println("\n\nLets learn Java Array by Quiz.\n Menu");
             System.out.println("1. Start to Learn");
-            System.out.println("2. Max. Score");
+            System.out.println("2. View HallOfFame");
             System.out.println("3. Exit");
-            String userOption = myObj.nextLine();
+            String userOption = myScan.next();
 
             switch (userOption) {
                 case "1":
-                    myQuestion.questions();
-                    System.out.println( "\n" + score.getName() +"\nThank you..\n   Your Score: " + score.getScore() + "\nTime duration: " + score.getTimeStamp());
+                    myGame.game();
                     break;
                 case "2":
-                    System.out.println("\nCurrent Max. score  :" + score.getMaxScore() + "\nCurrent Record Holder : " + score.getMaxScoreName()
-                    + "\nCurrent min time : " + score.getMinTime());
+                    sc.hallOfFameDisplay();
                     break;
                 case "3":
                     System.out.println("\nHOPE you got some Java Array Fluency.\n");
-                    myObj.close();      // stream close fix for warning of resource leak
+                    myScan.close();      // stream close fix for warning of resource leak
                     System.exit(0);
                     break;
                 default: 

@@ -1,15 +1,11 @@
 package com.Quiz;
-
 import java.util.Random;
 import java.util.Scanner;
-import java.time.Instant;
-import java.time.Duration;
 
 public class Question
 {
-    Score myScore = new Score() ;                  // need to be outside the function or score need to be singleton
-    Scanner myScanner = new Scanner(System.in) ;   // closed by java garbage collector when object of Question goes out of scope    
-    public void questions () {
+   Scanner response = new Scanner(System.in) ;   // closed by java garbage collector when object of Question goes out of scope    
+    public double questions () {
         String[] questions = {
             "Which of the following declares an array of integers named number?\n\n1) int number ;\n2) int [ ] number ;\n3) int new number [ ] ;\n4) int number = int [ ] ;\n",
             "What is the output of the following code fragments?\nint [ ] fun = new int [5];\nfun[0] = 1;\nfun[1] = 2;\nfun[2] = 3;\nfun[3] = 4;\nfun[4] = 5;\nint j = 3;\nSystem.out.println(fun[ j-1]) ;\n\n1) 1\n2) 2\n3) 3\n4) 4 \n",
@@ -40,21 +36,15 @@ public class Question
             int temp = array[randomIndexToSwap];
             array[randomIndexToSwap] = array[i];
             array[i] = temp;
-        }
-
-        System.out.println("Your name please : ");
-        String answer = myScanner.next() ;
-        myScore.setName(answer);
-
-        Instant startTime = Instant.now();
-
-        int numCorrect = 0;                                             // score tracker
-        for (int i = 0; i < 20; i++) {
+        }       
+        int numCorrect = 0; 
+        String answer;                                            // score tracker
+        for (int i = 0; i < 3; i++) {
             System.out.println("\n\n"+ (i+1) +" : " + questions[array[i]]) ;
-            answer = myScanner.next() ;
+            answer = response.next() ;
             while (!( answer.equals("1") || answer.equals("2") || answer.equals("3") || answer.equals("4"))){
                 System.out.println("Invalid choice! please choose 1, 2, 3 or 4 ");
-                answer = myScanner.next() ;
+                answer = response.next() ;
             }
             if (answer.equals(answers[array[i]])) {
                 System.out.println(answer + " is correct") ;
@@ -62,9 +52,8 @@ public class Question
             } else
             System.out.println(answer + " is incorrect") ;
         }
-        Instant endTime = Instant.now();
-        Duration timeElapsed = Duration.between(startTime, endTime);
-        myScore.setTimeStamp(timeElapsed.toSeconds()); // sets current time duration in the Score
-        myScore.score(numCorrect, 20, timeElapsed.toSeconds()) ;
+        //response.close();
+        System.out.println( "\n numCorrect " + numCorrect/5);
+        return (double)numCorrect/3;     // returned value is fraction of correctly answered question.
     }
 }

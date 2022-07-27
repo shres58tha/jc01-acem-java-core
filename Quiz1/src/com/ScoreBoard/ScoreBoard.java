@@ -1,0 +1,53 @@
+package com.ScoreBoard;
+
+import java.util.LinkedList;
+
+public class ScoreBoard{
+    int boardSize=5;
+    static LinkedList<Board> hallOfFame = new LinkedList<Board>();
+    
+    public void setScoreBoard(int sc, long tE, String nm) {
+        Board b = new Board();
+        Board c;
+        b.score=sc;
+        b.timeStamp=tE;
+        b.name=nm;
+        display(b);
+        for (int i=0;i<boardSize;i++) {           //all statements in thsi for loop should execute only once
+            int current_size = hallOfFame.size();
+            //System.out.print( "wertyuhgfdfgh " + current_size);  ///debug line
+            if(current_size==i) {                 // if current_size is equal or less than 9 of
+                hallOfFame.add(b);                // add at end
+                if (current_size == boardSize)    // one added above if else statement it will overflow
+                                                  // remove added one
+                        hallOfFame.remove(boardSize-1);
+                break;
+            }
+            else {
+                c=hallOfFame.get(i);
+                if ((sc > c.score) || (sc==c.score && tE < c.timeStamp)) {
+                    hallOfFame.add(i,b);          // need to insert this at location i and push others down
+                    if (current_size == boardSize)// one added above if else statement it will overflow
+                                                  // remove added one
+                            hallOfFame.remove(boardSize-1);
+                    break;                        /// needs modification
+                }
+            }
+        }
+        hallOfFameDisplay();
+    }
+    public void hallOfFameDisplay() {
+        System.out.println("\n\nSCORE BOARD\n****************************************\nrank\tscore \t time\t\tname\n");
+        int lenght = hallOfFame.size();
+        //System.out.println( " size " + lenght);
+        for (int i=0; i<lenght ; i++) {
+            Board entry=hallOfFame.get(i);
+            System.out.println((i+1) +"\t" +entry.score +" \t "+entry.timeStamp +"\t\t"+entry.name);
+        }
+    }
+    
+    public void display(Board entry) {
+        System.out.println("\n\nSCORE BOARD\n******YOUR SCORE************************\n\tscore \t time\t\tname\n");
+        System.out.println(" \t" +entry.score +" \t "+entry.timeStamp +"\t\t"+entry.name + "\n\n");
+    }
+}
