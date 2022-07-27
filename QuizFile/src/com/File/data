@@ -1,0 +1,315 @@
+--QuestionStart--
+Which of the following declares an array of integers named number?
+--QuestionEnd--
+--AnswerChoiceStart--
+1) int number ;
+2) int [ ] number ;
+3) int new number [ ] ;
+4) int number = int [ ] ;
+--AnswerChoiceEnd--
+--answer 
+2
+
+--QuestionStart--
+What is the output of the following code fragments?
+int [ ] fun = new int [5];
+fun[0] = 1;
+fun[1] = 2;
+fun[2] = 3;
+fun[3] = 4;
+fun[4] = 5;
+int j = 3;
+System.out.println(fun[ j-1]) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 1
+2) 2
+3) 3
+4) 4 
+--AnswerChoiceEnd--
+--answer 
+3
+
+--QuestionStart--
+What is the output of the following code fragment?
+int [ ] odd = {1, 3, 5, 7, 9, 11 };
+System.out.println( odd[0] + " " + odd[3] ) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 1 5
+2) 6
+3) 1 7
+4) 8
+--AnswerChoiceEnd--
+--answer 
+3
+
+--QuestionStart--
+What does the following method do?
+public static void numbers (int [ ] num){
+  for(int x = 1; x < num.length; x++)
+    num[x] = num[0];
+}
+--QuestionEnd--
+--AnswerChoiceStart--
+1) It copies what is in cell 0 into all other cells.
+2) It changes every element to the value of x.
+3) It copies 0 into every element.
+4) It puts the array into numerical ascending order.
+--AnswerChoiceEnd--
+--answer 
+1
+
+--QuestionStart--
+For which of the following situations is only one array NOT appropriate?
+--QuestionEnd--
+--AnswerChoiceStart--
+1) Working with 30 scores on the CS exam.
+2) Working with names and ages of students.
+3) Working with mileage during the weeks of vacation.
+4) Working with company monthly sales totals.
+--AnswerChoiceEnd--
+--answer 
+2
+
+--QuestionStart--
+What is the output of the following code fragment?
+int [ ] evens = {2, 4, 6, 8, 10};
+evens[0] = 44;
+evens[4] = evens[2];
+System.out.println(evens[0] + " " + evens[4]) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 44 10
+2) 2 10
+3) 54
+4) 44 6
+--AnswerChoiceEnd--
+--answer 
+1
+
+--QuestionStart--
+What are the subscripts for this array? int [ ] k = { 11, 12, 13, 14, 15};
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 0, 1, 2, 3, 4
+2) 1, 2, 3, 4, 5
+3) 11, 12, 13, 14, 15
+4) 10, 11, 12, 13, 14
+--AnswerChoiceEnd--
+--answer 
+1
+
+--QuestionStart--
+What is the output of the following code fragment?
+int [ ] items = {2, 7, 3, 5, 8, 9};
+int funny = items[0];
+for (int i = 0; i < items.length; i++){
+  if (items[ i ] > funny)
+    funny = items[ i ];
+}
+System.out.print(funny) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 2
+2) 9
+3) 2 3 5 7 8 9
+4) 2 7 3 5 8 9
+--AnswerChoiceEnd--
+--answer 
+2
+
+--QuestionStart--
+What number is in matrix[2][2]?
+int [ ] [ ] matrix = { {1, 2, 3, 4},
+{5, 6, 7, 8},
+{9, 10, 11, 12},
+{13, 14, 15, 16}
+};
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 6
+2) 7
+3) 10
+4) 11
+--AnswerChoiceEnd--
+--answer 
+4
+
+--QuestionStart--
+What is the output of the following code fragment?
+double [ ] x = new double [ 4];
+x[0] = 8.5;
+x[1] = 6.5;
+x[2] = 9.5;
+x[3] = 12.5;
+System.out.println(x[1 + 2]) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 6.5 9.5
+2) 12.5
+3) 15.0
+4) 9.5 12.5
+--AnswerChoiceEnd--
+--answer 
+2
+
+--QuestionStart--
+What is the output for the following code fragment?
+int [ ] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+for (int j = 0; j < numbers.length; j++)
+System.out.print(numbers[ j ] + " ") ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 1 2 3 4 5
+2) 6 7 8 9 10
+3) 2 3 4 5 6 7 8 9 10
+4) 1 2 3 4 5 6 7 8 9 10
+--AnswerChoiceEnd--
+--answer 
+4
+
+--QuestionStart--
+What is the output for the following code fragment?
+int [ ] a = new int [5];
+a[0] = 5;
+a[1] = 4;
+a[2] = 3;
+System.out.print(a[0] + a[1] + a[4]) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 9
+2) 5 3 1
+3) 5 3 0
+4) 8
+--AnswerChoiceEnd--
+--answer 
+1
+
+--QuestionStart--
+What is the output for the following code fragment?
+int [ ] car = new int [ 7];
+car[0] = 2004;
+car[1] = 2006;
+System.out.println(car[0] + " " + car[1] + " " car[7]) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 2004 2006 0
+2) 2004 2006
+3) 4010
+4) an error will occur
+--AnswerChoiceEnd--
+--answer 
+4
+
+--QuestionStart--
+What is the output for the following code fragment?
+int [ ] array = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
+for (int i = 0; i < 4; i++)
+  System.out.print(array[i] + " ") ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 2 4 6 8 10
+2) 2 4 6 8
+3) 2 4 6
+4) 2 4 6 8 10 12 14 16 18 20
+--AnswerChoiceEnd--
+--answer 
+2
+
+--QuestionStart--
+What is the output for the following code fragment?
+int [ ] dedo = { 1, 3, 6, 9, 2, 5, 7};
+int que = dedo[0];
+for (int k = 0; k < dedo.length; k++){
+  if (dedo[k] < que)
+    que = dedo[k];
+}
+System.out.print(que) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 1
+2) 2
+3) 1 3 6 9 2 5 7
+4) 7
+--AnswerChoiceEnd--
+--answer 
+1
+
+--QuestionStart--
+What is the output from the following code fragment?
+String [ ] name = { "Joe", "Sue", "Tom", "Jill", "Patty"};
+for (int i = 0; i < name.length; i = i + 2)
+  System.out.print(name[i] + " ") ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) Joe Sue Tom Jill Patty
+2) Patty Jill Tom Sue Joe
+3) Joe Tom Patty
+4) Sue Jill
+--AnswerChoiceEnd--
+--answer 
+3
+
+--QuestionStart--
+What does this method do?
+public static void cutUp(String word, char [ ] letter){
+if (letter.length >= word.length( ) )
+  for (int i = 0; i < word.length( ) ; i++)
+    letter[i] = word.charAt(i) ;
+}
+--QuestionEnd--
+--AnswerChoiceStart--
+1) It checks to see if the array contains the same letters as the String.
+2) It copies letters from the array to the String.
+3) If there are enough cells in the array, it copies each letter from the String
+to the array.
+4) It creates a new array that holds the letters from the String.
+--AnswerChoiceEnd--
+--answer 
+3
+
+--QuestionStart--
+What is the output of the following code fragment?
+int [ ] array = { 2, 4, 6, 8, 1, 3, 5, 7};
+int george = 0;
+for (int i = 0; i < array.length; i++)
+  george += array[i];
+System.out.print(george) ;
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 2 4 6 8 1 3 5 7
+2) 2 4 6 8
+3) 7
+4) 36
+--AnswerChoiceEnd--
+--answer 
+4
+
+--QuestionStart--
+What is the length of this array?
+double[ ] stuff = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5};
+--QuestionEnd--
+--AnswerChoiceStart--
+1) 1
+2) 5
+3) 6
+4) 7
+--AnswerChoiceEnd--
+--answer 
+3
+
+--QuestionStart--
+Which code line could possibly "call" this method?
+public static int SomeMethod(double[ ] array, int[ ] number){
+  . . .
+}
+--QuestionEnd--
+--AnswerChoiceStart--
+1) int value = SomeMethod(money, grades) ;
+2) SomeMethod(money, grades) ;
+3) double value = SomeMethod(money, grades) ;
+4) int value = SomeMethod(money) ;
+--AnswerChoiceEnd--
+--answer 
+1
