@@ -1,8 +1,7 @@
+//optimized, less error checking chances
 package com.Quiz;
-
 import java.util.*;
 import java.io.*;
-
 
 public class Question
 {
@@ -14,7 +13,7 @@ public class Question
         ArrayList<String> questions = new ArrayList<String>();
         ArrayList<String> answers   = new ArrayList<String>();
         ArrayList<String> correctAns = new ArrayList<String>();
-        int flagQuestion=0, flagAnswer=0,flagAns=0;    
+        int flag=0;    
         
           try {
             File file=new File("data");    //creates a new file instance  
@@ -27,48 +26,32 @@ public class Question
               switch (line.trim()) {
                 
               case "--QuestionStart--":
-                flagQuestion=1;
-                //System.out.println("flagQuestion" + flagQuestion);
+              case "--AnswerChoiceStart--":
+              case "--correctAnswerStart--":
+                flag=1;
                 continue;
               case "--QuestionEnd--":
-                flagQuestion=0; 
+                flag=0; 
                 //strBuffer.deleteCharAt(strBuffer.length()-1);  // delete last \n char
                 questions.add(strBuffer.toString() );
                 strBuffer.setLength(0); 
-                //System.out.println("flagQuestion" + flagQuestion);
-                //System.out.println("Question" + questions);
-                continue;
-              case "--AnswerChoiceStart--":
-                flagAnswer=1;
                 continue;
               case "--AnswerChoiceEnd--":
-                flagAnswer=0;  
+                flag=0;  
                 //strBuffer.deleteCharAt(strBuffer.length()-1);  // delete last \n char
                 answers.add(strBuffer.toString() );
                 strBuffer.setLength(0);
-                //System.out.println("answer" + answers);
-                continue;
-              case "--correctAnswerStart--":
-                flagAns=1;
                 continue;
               case "--correctAnswerEnd--":
-                flagAns=0;
-                correctAns.add(strBuffer.toString() );
+                flag=0;
+                correctAns.add(strBuffer.toString().trim());    // remove white space character at start or end
                 strBuffer.setLength(0);
                 continue;
               default :
-                if (flagQuestion==1){           
+                if (flag==1){           
                   strBuffer.append(line);      //appends line to string buffer  
                   strBuffer.append("\n");      //line feed   
                 } 
-                if (flagAnswer==1){           
-                  strBuffer.append(line);      //appends line to string buffer  
-                  strBuffer.append("\n");      //line feed   
-                }  
-                if(flagAns==1){
-                  //System.out.println(line);
-                  strBuffer.append(line.trim()); 
-                }
               } 
             } 
             fr.close();    //closes the stream and release the resources  
@@ -101,9 +84,9 @@ public class Question
         Random rand = new Random();
         
         for (int i = 0; i < l; i++) {                         //randomize questions
-            int randomIndexToSwap = rand.nextInt(l);
-            int temp = array[randomIndexToSwap];
-            array[randomIndexToSwap] = array[i];
+            int randInt = rand.nextInt(l);
+            int temp = array[randInt];
+            array[randInt] = array[i];
             array[i] = temp;
         }       
         
@@ -128,6 +111,5 @@ public class Question
         //response.close();
         System.out.println( "\n numCorrect " + numCorrect/5);
         return (double)numCorrect/noOfQ;     // returned value is fraction of correctly answered question.
-        
     }
 }
